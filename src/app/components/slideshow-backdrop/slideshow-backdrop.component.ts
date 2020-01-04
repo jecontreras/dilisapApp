@@ -11,14 +11,18 @@ import { Pelicula } from 'src/app/interfas/interfaces';
 export class SlideshowBackdropComponent implements OnInit {
 
   @Input() peliculas: Pelicula[] = [];
+  @Input() slidesPerView;
   
   slideOpts = {
-    slidesPerView: 1.1,
+    slidesPerView: 1.0,
     freeMode: true
   };  
   constructor( private modalCtrl: ModalController ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.slidesPerView, this.slideOpts)
+    this.slideOpts.slidesPerView=this.slidesPerView
+  }
 
   async verDetalle( id:string ){
     const modal = await this.modalCtrl.create({

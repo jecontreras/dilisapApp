@@ -9,17 +9,21 @@
       <ion-label>Populares</ion-label>
     </ion-text>
   </ion-toolbar>
-  <app-slideshow-backdrop [peliculas]="listArticulo"></app-slideshow-backdrop> 
+  <app-slideshow-backdrop [peliculas]="listArticulo" slidesPerView="1.1"></app-slideshow-backdrop> 
 
   <ion-grid>
     <ion-row *ngFor="let categoria of dataGeneral">
         <ion-col *ngIf="categoria.pelis.length > 0" size="12">
           <ion-toolbar>
-            <ion-text color="dark" class="margin_left_home">
-              <ion-label> {{ categoria.genero }}</ion-label>
-            </ion-text>
+            <ion-item>
+              <ion-text color="dark" class="margin_left_home">
+                <ion-label> {{ categoria.genero }}</ion-label>
+              </ion-text>
+              <ion-icon color="dark" slot="end" name="arrow-forward"></ion-icon>
+            </ion-item>
           </ion-toolbar>
-          <app-slideshow-poster [peliculas]="categoria.pelis"></app-slideshow-poster>        
+          <!-- <app-slideshow-poster [peliculas]="categoria.pelis"></app-slideshow-poster>         -->
+          <app-slideshow-backdrop [peliculas]="categoria.pelis" slidesPerView="2.1"></app-slideshow-backdrop> 
         </ion-col>
     </ion-row>
   </ion-grid>

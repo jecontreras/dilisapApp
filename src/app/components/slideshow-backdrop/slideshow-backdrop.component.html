@@ -2,6 +2,19 @@
   <ion-slide *ngFor="let pelicula of peliculas | filtroImagen">
     <ion-card (click)="verDetalle(pelicula.id)">
       <img [src]="pelicula.backdrop_path | imagen">
+      <ion-card-content no-border>
+        <ion-list>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src]="pelicula.poster_path | imagen">
+            </ion-avatar>
+            <ion-label>
+              <h2>Finn</h2>
+              <p>4.2</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
     </ion-card>
   </ion-slide>
 </ion-slides>
