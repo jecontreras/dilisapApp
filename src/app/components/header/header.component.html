@@ -6,13 +6,13 @@
     </ion-menu-button>
   </ion-buttons>
 
-  <ion-img src="./assets/dilisap.png"></ion-img>
+  <ion-img class="img_logo" src="./assets/dilisap.png"></ion-img>
   
-  <ion-segment scrollable mode="md" color="primary" (ionChange)="selectCategoria( $event )">
+  <!-- <ion-segment scrollable mode="md" color="primary" (ionChange)="selectCategoria( $event )">
     <ion-segment-button mode="md" [value]="item" *ngFor="let item of listCategoria">
       <ion-label text-capitalize> {{ item.name }} </ion-label>
     </ion-segment-button>
-  </ion-segment>
+  </ion-segment> -->
 
   <ion-searchbar placeholder="Buscar Pelicula" animated debounce="700" [value]="textoBuscar"
     (ionChange)="buscar( $event )"></ion-searchbar>
