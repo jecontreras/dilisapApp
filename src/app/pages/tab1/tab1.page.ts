@@ -12,10 +12,12 @@ export class Tab1Page implements OnInit {
 
   listCategoria:Genre[] = [];
   listArticulo:RespuestaMDB[] = [];
+  dataGeneral:any = [];
   buscando:boolean = false;
   config:any = {};
   constructor(
     private _Articulo: ArticuloService,
+    private _Categoria: CategoriaService,
   ) {}
 
   ngOnInit(){ 
@@ -29,9 +31,30 @@ export class Tab1Page implements OnInit {
   getlistArticulo(){
     this._Articulo.getArticulo({})
     .subscribe(rta=>{
-      console.log(rta)
+      // console.log(rta)
       this.listArticulo = rta.results;
+      this.getCategoria();
     });
+  }
+
+  getCategoria(){
+    this._Categoria.getCategoria({})
+    .subscribe(rta=>{
+      // console.log(rta);
+      for(let genero of rta.genres){
+        this.dataGeneral.push({
+          genero: genero.name,
+          pelis: this.listArticulo.filter( peli =>{
+            return peli['genre_ids'].find( genre => genre === genero.id );
+          })
+        });
+      }
+      console.log(this.dataGeneral)
+    });
+  }
+
+  cargarMas(){
+    
   }
 
 

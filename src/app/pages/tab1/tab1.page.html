@@ -3,5 +3,26 @@
 </ion-header>
 
 <ion-content>
-  <app-contenido [articulos]="listArticulo"></app-contenido> 
+  <!-- <app-contenido [articulos]="listArticulo"></app-contenido>  -->
+  <ion-toolbar>
+    <ion-text color="dark" class="margin_left_home">
+      <ion-label>Populares</ion-label>
+    </ion-text>
+  </ion-toolbar>
+  <app-slideshow-backdrop [peliculas]="listArticulo"></app-slideshow-backdrop> 
+
+  <ion-grid>
+    <ion-row *ngFor="let categoria of dataGeneral">
+        <ion-col *ngIf="categoria.pelis.length > 0" size="12">
+          <ion-toolbar>
+            <ion-text color="dark" class="margin_left_home">
+              <ion-label> {{ categoria.genero }}</ion-label>
+            </ion-text>
+          </ion-toolbar>
+          <app-slideshow-poster [peliculas]="categoria.pelis"></app-slideshow-poster>        
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <app-slideshow-poster [peliculas]="listArticulo"></app-slideshow-poster> -->
+  <!-- <app-slideshow-pares [peliculas]="listArticulo" (cargarMas)="cargarMas()"></app-slideshow-pares> -->
 </ion-content>
