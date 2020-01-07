@@ -7,23 +7,32 @@ import { ContenidoComponent } from './contenido/contenido.component';
 import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backdrop.component';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
 import { SlideshowParesComponent } from './slideshow-pares/slideshow-pares.component';
+import { DetalleComponent } from './detalle/detalle.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 
 
 @NgModule({
+  entryComponents:[
+    DetalleComponent
+  ],
   declarations: [
     HeaderComponent,
+    DetalleComponent,
     ContenidoComponent,
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
     SlideshowParesComponent,
+    TabsComponent
   ],
   exports: [
     HeaderComponent,
+    DetalleComponent,
     ContenidoComponent,
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
     SlideshowParesComponent,
+    TabsComponent
   ],
   imports: [
     CommonModule,

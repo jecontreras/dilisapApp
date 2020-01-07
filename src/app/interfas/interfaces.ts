@@ -1,10 +1,18 @@
+export interface Componente {
+  icon: string;
+  name: string;
+  redirectTo: string;
+}
+
 export interface RespuestaMDB {
     page: number;
     total_results: number;
     total_pages: number;
     results: Pelicula[];
   }
-  
+  export interface LOGINUSER {
+
+  }
   export interface Pelicula {
     vote_count: number;
     id: number;

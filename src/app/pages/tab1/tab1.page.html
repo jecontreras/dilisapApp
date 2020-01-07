@@ -1,5 +1,5 @@
 <ion-header>
-  <app-header [config]="config"></app-header>
+  <app-header [config]="config" (selectCategorias)="selectCategoria($event)"></app-header>
 </ion-header>
 
 <ion-content>
@@ -9,7 +9,7 @@
       <ion-label>Populares</ion-label>
     </ion-text>
   </ion-toolbar>
-  <app-slideshow-backdrop [peliculas]="listArticulo" slidesPerView="1.1"></app-slideshow-backdrop> 
+  <app-slideshow-backdrop [peliculas]="listArticulo" slidesPerView="1.5"></app-slideshow-backdrop> 
 
   <ion-grid>
     <ion-row *ngFor="let categoria of dataGeneral">

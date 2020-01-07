@@ -14,4 +14,7 @@ export class ArticuloService {
   getArticulo(data:any){
     return this._service.querys<RespuestaMDB>('themovie/get_articulo', data, 'post');
   }
+  getArticuloId(data:any){
+    return this._service.querys<RespuestaMDB>('themovie/get_articulo_id', data, 'post');
+  }
 }

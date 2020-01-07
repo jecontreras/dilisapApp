@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Genre } from 'src/app/interfas/interfaces';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { ArticuloService } from 'src/app/services/articulo.service';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +11,13 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 export class HeaderComponent implements OnInit {
   
   @Input() config:any = {};
+  @Output() selectCategorias = new EventEmitter();
+
   textoBuscar:string = '';
   listCategoria: Genre[]=[];
   constructor(
     private _Categoria: CategoriaService,
+    private _Articulo: ArticuloService
   ) { }
 
   ngOnInit() {
@@ -22,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.getlistCategoria();
   }
   
-  buscar(){
+  buscar(ev:any ){
 
   }
 
@@ -38,7 +42,8 @@ export class HeaderComponent implements OnInit {
     });
   }
   selectCategoria(ev:any){
-    let data = ev.detail.value.id;
+    let data = ev.detail.value.name;
     console.log(data);
+    this.selectCategorias.emit(data);
   }
 }

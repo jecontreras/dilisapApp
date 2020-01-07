@@ -8,6 +8,7 @@ import { RespuestaMDB } from 'src/app/interfas/interfaces';
 })
 export class ContenidoComponent implements OnInit {
   @Input() articulos: RespuestaMDB[] = [];
+  buscando:boolean = true;
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,25 @@
+export interface COMPRAS {
+    user?: string;
+    cantidad?: number;
+    total?: number;
+    cartpago?: object;
+    cartpadre?: object;
+    subtotal?: number;
+    estado?: string;
+    ciudad?: string;
+    codigo?: string;
+    codigoglobal?: string;
+    valorentrega?: number;
+    fechaentrega?: string;
+    fechamaxima?:  string;
+    costoenvio?: number;
+    empresa?: object;
+    pais?: string;
+    provivencia?: string;
+    direccion1?: string;
+    direccion2?: string;
+    descuento?:  number;
+    codigopostal?: string;
+    terminocondicione?: boolean;
+    suscribete?: boolean;
+};

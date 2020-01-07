@@ -1,0 +1,20 @@
+export interface USER {
+    username?: string;
+    id?: string;
+    name?: string;
+    codigo?: string;
+    celular?: string;
+    indicativo?: string;
+    estado?: string;
+    sexo?: string;
+    tipodoc?: string;
+    email?: string;
+    foto?: string;
+    documento?: string;
+    pais?: string;
+    departamento?: string;
+    ciudad?: string;
+    direccion?: string;
+    codigopostal?: string;
+    rol?: object;
+};

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriaService } from 'src/app/services/categoria.service';
 import { Genre } from 'src/app/interfas/interfaces';
 
 @Component({
@@ -8,34 +7,28 @@ import { Genre } from 'src/app/interfas/interfaces';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-  tabs = [];
+  tabs = [
+    {
+      path: 'tab1',
+      icon: "airplane",
+      name: "Home"
+    },
+    {
+      path: 'tab2',
+      icon: "airplane",
+      name: "Ofertas"
+    },
+    {
+      path: 'tab3',
+      icon: "airplane",
+      name: "Negocios"
+    }
+  ];
   listCategoria:Genre[] = [];
   constructor(
-    private _Categoria: CategoriaService,
   ) { }
 
-  ngOnInit() {
-    this.getlistCategoria();
-  }
-  getlistCategoria(){
-    this._Categoria.getCategoria({})
-    .subscribe(rta=>{
-      console.log(rta);
-      this.listCategoria = rta['genres'];
-      this.tabs = this.listCategoria.map(row=>{
-        return {
-          path: 'tab1',
-          icon: "airplane",
-          name: row.name,
-          id: row.id
-        };
-      });
-      this.tabs.unshift({
-        path: 'tab1',
-        icon: "airplane",
-        name: "Home"
-      })
-    });
-  }
+  ngOnInit() {}
+
 
 }

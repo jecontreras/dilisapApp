@@ -1,49 +1,84 @@
 <ion-content>
-  <ion-label class="titulo">
-    <h1>{{ pelicula.title }}</h1>
-  </ion-label>
+  <!-- <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path"> -->
+  <!-- <ion-label class="titulo">
+    <h1>{{ 'hola todo' }}</h1>
+  </ion-label> -->
+  <ion-slides [options]="slideProductos">
+    <ion-slide *ngFor="let actor of [1,2,3]">
+      <img src="https://www.dhresource.com/600x600/f2/albu/g6/M00/F0/98/rBVaSFvUUZGAZ4xYAAIIeEgRe3o162.jpg">
+    </ion-slide>
+  </ion-slides>
 
-  <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path">
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="4" class="poster-detalle-sobre">
-        <ion-card class="poster">
-          <img [src]="pelicula.poster_path | imagen" class="poster" *ngIf="pelicula.poster_path">
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-icon slot="start" name="thumbs-up" color="primary"></ion-icon>
-          <ion-label>Rating</ion-label>
-          <ion-note slot="end" color="primary">{{ pelicula.vote_average }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-icon slot="start" name="contacts" color="primary"></ion-icon>
-          <ion-label>Votos</ion-label>
-          <ion-note slot="end" color="primary">{{ pelicula.vote_count }}</ion-note>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
-        <ion-label>{{ pelicula.overview | slice: 0: oculto }}... </ion-label>
-        <ion-label color="primary" (click)="oculto = 5000" *ngIf="oculto !== 5000">Leer más!</ion-label>
+        <ion-text color="dark">
+          <h5>{{ 'hola todo' }}</h5>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-text>
+          <p color="primary"> ${{ (dataArt.precio || 0).toLocaleString('de-DE', { style: 'currency', currency: 'COP' }) }} </p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="primary" expand="full">
+          COMPRAR
+        </ion-button>
+        <ion-button color="primary" expand="full" (click)="data_chat()">
+          CONSULTAR
+        </ion-button>
       </ion-col>
     </ion-row>
+  </ion-grid>
+
+  <ion-grid fixed>
+
     <ion-row>
       <ion-col size="12">
-        <ion-chip *ngFor="let genero of pelicula.genres" color="primary">
-          <ion-label>{{ genero.name }}</ion-label>
+        <ion-text color="dark">
+          <h5>Descripcion</h5>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-label [innerHtml]="dataArt.descripcion">
+        </ion-label>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-chip *ngFor="let categoria of dataArt.categorias" color="primary">
+          <ion-label>{{ categoria.name }}</ion-label>
         </ion-chip>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid fixed>
+  <ion-list>
+    <ion-list-header>
+      Comentarios
+    </ion-list-header>
+
+    <ion-item *ngFor="let comentario of dataArt.comentarios">
+      <ion-avatar slot="start">
+        <img [src]="comentario.foto || './assets/perfil.png'">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ comentario.username }}</h2>
+        <h3>{{ comentario.createad }}</h3>
+        <ion-text color="dark">
+          <p>{{ comentario.mensaje }}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+  <!-- <ion-grid fixed>
     <ion-row>
       <ion-col>
         <ion-label>Actores</ion-label>
@@ -60,7 +95,7 @@
         <ion-label class="actor-name">{{ actor.name }}</ion-label>
       </ion-card>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
 </ion-content>
 

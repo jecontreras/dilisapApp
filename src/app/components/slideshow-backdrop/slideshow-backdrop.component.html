@@ -1,16 +1,16 @@
 <ion-slides [options]="slideOpts">
-  <ion-slide *ngFor="let pelicula of peliculas | filtroImagen">
-    <ion-card (click)="verDetalle(pelicula.id)">
-      <img [src]="pelicula.backdrop_path | imagen">
-      <ion-card-content no-border>
-        <ion-list>
+  <ion-slide *ngFor="let item of peliculas | filtroImagen">
+    <ion-card (click)="verDetalle(item.id)" class="padding_car">
+      <img [src]="item.backdrop_path | imagen">
+      <ion-card-content no-border class="padding_car">
+        <ion-list class="ion_list">
           <ion-item>
-            <ion-avatar slot="start">
-              <img [src]="pelicula.poster_path | imagen">
+            <ion-avatar *ngIf="disable_img" slot="start">
+              <img [src]="item.poster_path | imagen">
             </ion-avatar>
             <ion-label>
-              <h2>Finn</h2>
-              <p>4.2</p>
+              <h2>{{ item.title }}</h2>
+              <p><ion-icon name="star-outline"></ion-icon> {{ item.vote_average }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
