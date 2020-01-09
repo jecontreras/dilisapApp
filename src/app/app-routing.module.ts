@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
+    path: 'home',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
     path: 'chat',
     loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatPageModule)
   },
@@ -27,7 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/guardados/guardados.module').then(m => m.GuardadosPageModule)
   },
   {
-    path: 'notificaciones',
+    path: 'notificacion',
     loadChildren: () => import('./pages/notificaciones/notificaciones.module').then(m => m.NotificacionesPageModule)
   },
   {
@@ -38,6 +42,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then(m => m.PerfilPageModule)
+  },
+  {
+    path: 'categoria',
+    loadChildren: () => import('./pages/categoria/categoria.module').then( m => m.CategoriaPageModule)
   }
 ];
 @NgModule({

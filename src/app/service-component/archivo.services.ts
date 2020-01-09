@@ -21,7 +21,7 @@ export class ArchivoService {
     for(let row of query.img){
       row.img = postData.append('file', row);
     }
-    console.log(query);
+    // console.log(query);
     return this._model.querys<ARCHIVO>('galeria/file', query, 'post');
   }
 

@@ -165,7 +165,7 @@ export class NotificacionesPage implements OnInit {
       }
     })
     .subscribe((rta:any)=>{
-      // console.log(rta);
+      console.log(rta);
 
       if(this.ev){
         this.disable_list = true;

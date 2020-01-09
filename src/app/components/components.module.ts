@@ -9,16 +9,19 @@ import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.co
 import { SlideshowParesComponent } from './slideshow-pares/slideshow-pares.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 
 
 @NgModule({
   entryComponents:[
-    DetalleComponent
+    DetalleComponent,
+    BuscadorComponent
   ],
   declarations: [
     HeaderComponent,
     DetalleComponent,
+    BuscadorComponent,
     ContenidoComponent,
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
@@ -28,6 +31,7 @@ import { TabsComponent } from './tabs/tabs.component';
   exports: [
     HeaderComponent,
     DetalleComponent,
+    BuscadorComponent,
     ContenidoComponent,
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
