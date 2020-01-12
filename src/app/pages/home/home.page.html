@@ -1,9 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-
+  <ion-toolbar color="primary">
+    <div class="ion-text-center">
+      <h6>Seleccione tus Gustos</h6>
+    </div>
+  </ion-toolbar>
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let item of listCategoria">
+      <div class="ion-text-center">
+        <ion-chip color="primary">
+          <ion-label color="Light">{{ item.name }}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>  
 </ion-content>
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear">
+      Saltar
+    </ion-button>
+    <ion-button slot="end" fill="clear" (click)="siguiente()">
+      Siguiente
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
