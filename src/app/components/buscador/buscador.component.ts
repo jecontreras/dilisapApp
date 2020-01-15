@@ -9,9 +9,10 @@ import { ModalController } from '@ionic/angular';
 export class BuscadorComponent implements OnInit {
 
   constructor(private modalCtrl: ModalController) { }
-
+  textoBuscar = "";
   ngOnInit() {}
   salir(){
     this.modalCtrl.dismiss();
   }
+  buscar(ev){}
 }

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DataService } from './services/data.service';
 import { Observable } from 'rxjs';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +29,11 @@ export class AppComponent {
 
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
+  async initializeApp() {
+    this.platform.ready().then(async() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.componentes = this.dataService.getMenuOpts();
-      console.log(this.componentes)
+      this.dataService.getMenuOpts().subscribe(rta=>this.componentes = rta.mensaje);
     });
   }
   iniciar_seccion(){

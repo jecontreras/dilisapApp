@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Genre } from 'src/app/interfas/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -26,9 +27,12 @@ export class TabsPage implements OnInit {
   ];
   listCategoria:Genre[] = [];
   constructor(
+    private router: Router,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.router.navigate(['/categoria'])
+  }
 
 
 }
