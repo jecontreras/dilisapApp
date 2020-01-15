@@ -1,8 +1,5 @@
 {
-  "name": "dilisapApp",
-  "integrations": {
-    "cordova": {},
-    "capacitor": {}
-  },
+  "name": "DilisapLive",
+  "integrations": {},
   "type": "angular"
 }
